@@ -1,0 +1,183 @@
+/* Quita márgenes por defecto y hace que el padding no agrande las cajas */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Contenedor: apila las filas una debajo de otra (flex-direction: column) */
+.contenedor {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* espacio entre filas */
+}
+
+/* Fila 1: tarjetas 1 y 2 lado a lado */
+.fila-superior {
+  display: flex;
+  gap: 20px;
+}
+
+/* flex: 1 hace que cada tarjeta ocupe el mismo ancho */
+.tarjeta1,
+.tarjeta2 {
+  flex: 1;
+}
+
+/* ---------- PARTE REUTILIZABLE: autor (foto + nombre) ---------- */
+.autor {
+  display: flex;
+  align-items: center; /* centra foto y texto en vertical */
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.autor img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;  /* 50% = círculo */
+  object-fit: cover;   /* evita que la foto se deforme */
+}
+
+.nombre {
+  font-weight: bold;
+}
+
+.cargo {
+  font-size: 12px;
+}
+
+/* ---------- TARJETA 1: globo oscuro ---------- */
+.burbuja {
+  position: relative; /* necesario para ubicar la colita (::after) dentro del globo */
+  background: #222;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  line-height: 1.5;
+}
+
+.burbuja p + p {
+  margin-top: 15px; /* separa el segundo párrafo del primero */
+}
+
+/* La colita: un cuadro de tamaño 0 donde solo se ve un borde, que forma un triángulo */
+.burbuja::after {
+  content: "";             /* obligatorio para que el ::after aparezca */
+  position: absolute;      /* se ubica respecto a .burbuja */
+  bottom: -10px;           /* sale por debajo del globo */
+  left: 30px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #222; /* este borde es el triángulo visible */
+}
+
+/* ---------- TARJETA 2: tarjeta con borde ---------- */
+.tarjeta2 {
+  border: 2px solid #222;
+  border-radius: 15px;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* ---------- TARJETA 3: foto + caja oscura ---------- */
+.tarjeta3 {
+  display: flex;
+  gap: 15px;
+}
+
+.tarjeta3 img {
+  width: 40%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.caja-oscura {
+  flex: 1; /* ocupa el espacio que sobra */
+  background: #222;
+  color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  line-height: 1.5;
+}
+
+.estrellas {
+  color: gold;
+  font-size: 22px;
+}
+
+.caja-oscura h2 {
+  font-weight: normal;
+  margin: 10px 0 5px;
+}
+
+.cargo-gris {
+  color: #888;
+  margin-bottom: 15px;
+}
+
+/* ---------- TARJETA 4: texto centrado + miniaturas ---------- */
+.tarjeta4 {
+  border: 2px solid #222;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center; /* centra todo el texto de la tarjeta */
+}
+
+.texto-centrado {
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.miniaturas {
+  display: flex;
+  justify-content: center; /* centra la fila en horizontal */
+  align-items: center;     /* alinea fotos y flechas en vertical */
+  gap: 20px;
+}
+
+.miniaturas img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0.5; /* fotos de los lados más apagadas */
+}
+
+/* La foto del centro: más grande y sin transparencia */
+.miniaturas img.activa {
+  width: 70px;
+  height: 70px;
+  opacity: 1;
+}
+
+.flecha {
+  font-size: 20px;
+}
+
+.nombre-centrado {
+  margin-top: 15px;
+}
+
+/* ---------- CELULAR (pantallas de hasta 600px) ---------- */
+@media (max-width: 600px) {
+  .fila-superior {
+    flex-direction: column; /* tarjetas 1 y 2 una debajo de otra */
+  }
+
+  .tarjeta3 {
+    flex-direction: column; /* foto arriba, caja oscura abajo */
+  }
+
+  .tarjeta3 img {
+    width: 100%;
+    height: 250px;
+  }
+}

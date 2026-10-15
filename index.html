@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: hace que la página se vea bien en celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjetas de testimonio -Julián Andrés Morales Cubides</title>
+  <link rel="stylesheet" href="css/testimonios.css">
+</head>
+<body>
+
+  <!-- Contenedor general: centra y organiza todas las tarjetas -->
+  <div class="contenedor">
+
+    <!-- FILA 1: las tarjetas 1 y 2 van una al lado de la otra -->
+    <div class="fila-superior">
+
+      <!-- TARJETA 1: globo de diálogo oscuro con la persona debajo -->
+      <div class="tarjeta1">
+        <!-- La "colita" del globo se dibuja con CSS (ver .burbuja::after) -->
+        <div class="burbuja">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium architecto maiores nam, suscipit eius provident possimus veniam quas delectus, quibusdam vitae perferendis ad in quos dolorum, sint iure dolorem culpa?.</p>
+          <p>¡Muy recomendado!</p>
+        </div>
+
+        <!-- Autor: foto + nombre + cargo -->
+        <div class="autor">
+          <img src="../img/spi.jpg" alt="Spiderman logo">
+          <div>
+            <p class="nombre">Peter Parker</p>
+            <p class="cargo">El hombre araña</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 2: tarjeta con borde, texto arriba y autor abajo -->
+      <div class="tarjeta2">
+        <p>Desde que empecé mi carrera en 2021 solo he seguido un recurso, y me ayudó a pasar de cero a tener un trabajo.</p>
+
+        <div class="autor">
+          <img src="../img/lorem.jpg" alt="Foto de lorem">
+          <div>
+            <p class="nombre">Lorem Ipsum</p>
+            <p class="cargo">Junior Frontend Developer</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TARJETA 3: foto grande a la izquierda y caja oscura a la derecha -->
+    <div class="tarjeta3">
+      <img src="../img/claude.png" alt="claude">
+
+      <div class="caja-oscura">
+        <!-- Las estrellas son texto (caracteres), no imágenes -->
+        <p class="estrellas">★★★★★</p>
+        <h2>claude</h2>
+        <p class="cargo-gris">Claude AI</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur soluta eius recusandae in dolorum modi fugiat a doloribus quia, voluptate, non eligendi ab temporibus possimus consequatur, suscipit dolores aspernatur ratione?.</p>
+      </div>
+    </div>
+
+    <!-- TARJETA 4: texto centrado y "carrusel" de fotos (solo diseño, sin JavaScript) -->
+    <div class="tarjeta4">
+      <p class="texto-centrado">Es un recurso increíble. Tuve la suerte de descubrirlo en mis días de universidad en 2018. Es asombroso ver el impacto que ha tenido en millones de vidas.</p>
+
+      <!-- Fila de miniaturas con flechas a los lados -->
+      <div class="miniaturas">
+        <span class="flecha">&lt;</span>  <!-- &lt; es el símbolo "<" escrito en HTML -->
+        <img src="../img/chat.png" alt="chat">
+        <!-- La clase "activa" hace más grande y nítida la foto del centro -->
+        <img class="activa" src="../img/deep.png" alt="deep">
+        <img src="../img/gemini.jpg" alt="gemini">
+        <span class="flecha">&gt;</span>  <!-- &gt; es el símbolo ">" -->
+      </div>
+
+      <p class="nombre-centrado">DeepSeek AI</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
