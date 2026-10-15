@@ -1,6 +1,6 @@
 /* Quita márgenes por defecto y hace que el padding no agrande las cajas */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /*hace que el ancho y alto de un elemento incluyan el padding (relleno) y el border (borde), pero no el margin.*/
   margin: 0;
   padding: 0;
 }
@@ -56,7 +56,7 @@ body {
 
 /* ---------- TARJETA 1: globo oscuro ---------- */
 .burbuja {
-  position: relative; /* necesario para ubicar la colita (::after) dentro del globo */
+  position: relative; /* necesario para ubicar la colita dentro del globo, El elemento se mantiene en su flujo normal (no se sale de su lugar).*/
   background: #222;
   color: #fff;
   padding: 20px;
@@ -95,7 +95,7 @@ body {
 
 .tarjeta3 img {
   width: 40%;
-  object-fit: cover;
+  object-fit: cover; /*llena toda la caja sin deformar la imagen; si sobra, recorta*/
   border-radius: 20px;
 }
 
